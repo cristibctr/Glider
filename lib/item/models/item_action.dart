@@ -12,6 +12,7 @@ import 'package:glider_domain/glider_domain.dart';
 import 'package:go_router/go_router.dart';
 
 enum ItemAction<T extends MenuItem<S>, S> implements MenuItem<ItemState> {
+  summarize,
   visit,
   upvote,
   downvote,
@@ -37,6 +38,7 @@ enum ItemAction<T extends MenuItem<S>, S> implements MenuItem<ItemState> {
     final item = state.data;
     if (item == null) return false;
     return switch (this) {
+      ItemAction.summarize => true,
       ItemAction.visit => true,
       ItemAction.upvote => !item.isDeleted &&
           item.type != ItemType.job &&
@@ -74,6 +76,7 @@ enum ItemAction<T extends MenuItem<S>, S> implements MenuItem<ItemState> {
   @override
   String label(BuildContext context, ItemState state) {
     return switch (this) {
+      ItemAction.summarize => 'Summarize',
       ItemAction.visit =>
         state.visited ? context.l10n.unvisit : context.l10n.visit,
       ItemAction.upvote =>
@@ -96,6 +99,7 @@ enum ItemAction<T extends MenuItem<S>, S> implements MenuItem<ItemState> {
   @override
   IconData icon(ItemState state) {
     return switch (this) {
+      ItemAction.summarize => Icons.photo_filter,
       ItemAction.upvote =>
         state.vote.upvoted ? Icons.undo_outlined : Icons.arrow_upward_outlined,
       ItemAction.downvote => state.vote.downvoted
@@ -125,6 +129,8 @@ enum ItemAction<T extends MenuItem<S>, S> implements MenuItem<ItemState> {
   }) async {
     final id = itemCubit.id;
     switch (this) {
+      case ItemAction.summarize:
+        await itemCubit.summarize();
       case ItemAction.visit:
         await itemCubit.visit(!itemCubit.state.visited);
       case ItemAction.upvote:

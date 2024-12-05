@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:glider_data/glider_data.dart';
 import 'package:glider_domain/src/entities/theme_mode.dart';
-import 'package:material_color_utilities/scheme/variant.dart';
+import 'package:material_color_utilities/material_color_utilities.dart';
 
 class SettingsRepository {
   const SettingsRepository(this._sharedPreferencesService);

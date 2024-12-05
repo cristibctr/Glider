@@ -7,7 +7,7 @@ import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:equatable/equatable.dart';
 import 'package:glider/common/extensions/bloc_base_extension.dart';
 import 'package:glider_domain/glider_domain.dart';
-import 'package:material_color_utilities/scheme/variant.dart';
+import 'package:material_color_utilities/material_color_utilities.dart';
 import 'package:pub_semver/pub_semver.dart';
 import 'package:share_plus/share_plus.dart';
 

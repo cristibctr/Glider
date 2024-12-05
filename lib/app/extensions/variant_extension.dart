@@ -2,8 +2,6 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:glider/app/extensions/dynamic_scheme_extension.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
-import 'package:material_color_utilities/scheme/scheme_fruit_salad.dart';
-import 'package:material_color_utilities/scheme/scheme_rainbow.dart';
 
 extension VariantExtension on Variant {
   ColorScheme toColorScheme(

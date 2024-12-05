@@ -231,6 +231,10 @@ class ItemCubit extends HydratedCubit<ItemState>
     }
   }
 
+  Future<void> summarize() async {
+    print('thesis: Summarize');
+  }
+
   Future<void> copy(String text) async {
     await Clipboard.setData(ClipboardData(text: text));
   }
